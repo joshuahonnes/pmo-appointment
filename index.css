@@ -1,0 +1,209 @@
+/* ============================================================
+   PMO Appointment System — Global Styles
+   Palette: Black & Gold (Papua New Guinea Official)
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+:root {
+  /* Gold scale */
+  --gold-50:  #FFFBEB;
+  --gold-100: #FEF3C7;
+  --gold-200: #F5D878;
+  --gold-300: #E8C040;
+  --gold-400: #D4A017;
+  --gold-500: #B8860B;
+  --gold-600: #9A6F07;
+  --gold-700: #7C5805;
+
+  /* Black scale */
+  --black-900: #0A0A0A;
+  --black-800: #141414;
+  --black-700: #1E1E1E;
+  --black-600: #2A2A2A;
+  --black-500: #3D3D3D;
+  --black-400: #5A5A5A;
+  --black-300: #7A7A7A;
+  --black-200: #A8A8A8;
+  --black-100: #D4D4D4;
+  --black-50:  #F5F5F3;
+
+  /* Semantic */
+  --gold:         var(--gold-400);
+  --gold-dark:    var(--gold-600);
+  --gold-light:   var(--gold-50);
+  --text:         var(--black-900);
+  --text-muted:   var(--black-400);
+  --bg:           #F8F7F2;
+  --surface:      #FFFFFF;
+  --border:       #E2DDD4;
+  --border-gold:  var(--gold-200);
+
+  /* Status */
+  --pending:        #7A5C00;
+  --pending-bg:     #FFFBEB;
+  --pending-border: #F5D878;
+
+  --approved:        #145F2F;
+  --approved-bg:     #EAFAF0;
+  --approved-border: #86EFAC;
+
+  --rejected:        #7F1D1D;
+  --rejected-bg:     #FEF2F2;
+  --rejected-border: #FECACA;
+
+  /* Typography */
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body:    'DM Sans', 'Segoe UI', sans-serif;
+
+  /* Radii */
+  --r-sm:  5px;
+  --r-md:  8px;
+  --r-lg:  12px;
+  --r-xl:  16px;
+
+  /* Shadow */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1), 0 2px 4px rgba(0,0,0,0.06);
+  --shadow-lg: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html { font-size: 15px; scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root { min-height: 100vh; display: flex; flex-direction: column; }
+
+/* ─── Buttons ─── */
+.btn {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 22px;
+  border-radius: var(--r-sm);
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s, transform 0.12s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  letter-spacing: 0.02em;
+}
+.btn:active { transform: scale(0.98); }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.btn-gold {
+  background: var(--gold-400);
+  color: var(--black-900);
+  border: 1px solid var(--gold-500);
+}
+.btn-gold:hover:not(:disabled) { background: var(--gold-500); }
+
+.btn-black {
+  background: var(--black-800);
+  color: #fff;
+  border: 1px solid var(--black-700);
+}
+.btn-black:hover:not(:disabled) { background: var(--black-700); }
+
+.btn-approve {
+  background: var(--approved);
+  color: #fff;
+  border: 1px solid transparent;
+}
+.btn-approve:hover { background: #0f4a24; }
+
+.btn-reject {
+  background: var(--surface);
+  color: var(--rejected);
+  border: 1px solid var(--rejected-border);
+}
+.btn-reject:hover { background: var(--rejected-bg); }
+
+.btn-outline {
+  background: var(--surface);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+.btn-outline:hover { background: var(--bg); color: var(--text); }
+
+/* ─── Badges ─── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 11px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+.badge-pending  { background: var(--pending-bg);  color: var(--pending);  border-color: var(--pending-border); }
+.badge-approved { background: var(--approved-bg); color: var(--approved); border-color: var(--approved-border); }
+.badge-rejected { background: var(--rejected-bg); color: var(--rejected); border-color: var(--rejected-border); }
+
+/* ─── Form Controls ─── */
+.form-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--black-500);
+  margin-bottom: 6px;
+}
+.form-label .req { color: var(--gold-500); }
+
+.form-control {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  padding: 10px 13px;
+  font-size: 14px;
+  font-family: var(--font-body);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  -webkit-appearance: none;
+}
+.form-control::placeholder { color: var(--black-200); }
+.form-control:focus {
+  border-color: var(--gold-400);
+  box-shadow: 0 0 0 3px rgba(212,160,23,0.15);
+}
+textarea.form-control { resize: vertical; min-height: 96px; }
+
+/* ─── Card ─── */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ─── Divider ─── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  border: none;
+}
+
+/* ─── Utility ─── */
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
